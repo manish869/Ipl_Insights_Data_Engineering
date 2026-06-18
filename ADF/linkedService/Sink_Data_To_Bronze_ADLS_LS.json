@@ -1,0 +1,11 @@
+{
+	"name": "Sink_Data_To_Bronze_ADLS_LS",
+	"properties": {
+		"description": "linked service to sink data to bronze container of adls",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://cricketinsightsstorage.dfs.core.windows.net/"
+		}
+	}
+}
