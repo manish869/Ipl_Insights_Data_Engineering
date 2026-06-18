@@ -1,5 +1,5 @@
 {
-	"name": "Sink_Data_To_Bronze_ADLS_DS",
+	"name": "sink_data_to_bronze_ADLS_ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Sink_Data_To_Bronze_ADLS_LS",
