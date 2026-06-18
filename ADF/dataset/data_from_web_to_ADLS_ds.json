@@ -1,5 +1,5 @@
 {
-	"name": "Data_from_web_to_ADLS_DS",
+	"name": "data_from_web_to_ADLS_ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Data_from_web_to_ADLS_LS",
