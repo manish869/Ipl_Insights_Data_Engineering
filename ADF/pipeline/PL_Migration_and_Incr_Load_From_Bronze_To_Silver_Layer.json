@@ -35,13 +35,68 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Data_from_web_to_ADLS_DS",
+						"referenceName": "data_from_web_to_ADLS_ds",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Sink_Data_To_Bronze_ADLS_DS",
+						"referenceName": "sink_data_to_bronze_ADLS_ds",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Unzip",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy zip file",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings",
+							"compressionProperties": {
+								"type": "ZipDeflateReadSettings",
+								"preserveZipFileNameAsFolder": false
+							}
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "adls_bronze_zip_filecollect_ds",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "adls_bronze_unzip_ds",
 						"type": "DatasetReference"
 					}
 				]
