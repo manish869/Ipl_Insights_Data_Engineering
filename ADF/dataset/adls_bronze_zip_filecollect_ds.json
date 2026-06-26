@@ -1,0 +1,22 @@
+{
+	"name": "adls_bronze_zip_filecollect_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Data_To_Bronze_ADLS_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ipl.zip",
+				"folderPath": "raw_zip",
+				"fileSystem": "bronze"
+			},
+			"compression": {
+				"type": "ZipDeflate"
+			}
+		}
+	}
+}

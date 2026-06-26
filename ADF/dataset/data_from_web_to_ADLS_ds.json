@@ -1,0 +1,17 @@
+{
+	"name": "data_from_web_to_ADLS_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Data_from_web_to_ADLS_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "downloads/ipl_json.zip"
+			}
+		}
+	}
+}
